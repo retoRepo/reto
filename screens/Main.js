@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { TabNavigator } from 'react-navigation';
+
+import ScreenOne from './ScreenOne';
+import ScreenTwo from './ScreenTwo';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -8,18 +13,20 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-
-
-export default class Main extends React.Component {
-  static navigationOptions = {
-    headerLeft: null
+const MainPage = TabNavigator({
+  ScreenOne: { screen: ScreenOne },
+  ScreenTwo: { screen: ScreenTwo }
+}, {
+  tabBarOptions: { 
+    activeTintColor: '#fffdfc',
+    labelStyle: {
+      fontSize: 12,
+      fontWeight: '100'
+    },
+    style:{
+      backgroundColor: '#DC934C'
+    }
   }
-  render() {
-    return (
-      <View>
-       <Text>Welcome to the main page!!!</Text>
-      </View>
-    );
-  }
-}
+});
 
+export default MainPage;
